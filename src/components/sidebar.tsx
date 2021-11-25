@@ -27,6 +27,9 @@ const Sidebar = (props: DrawerContentComponentProps) => {
   const handlePressMenuAbout = useCallback(() => {
     navigation.navigate('About')
   }, [navigation])
+  const handlePressMenuPomo = useCallback(() => {
+    navigation.navigate('Pomo')
+  }, [navigation])
 
   return (
     <AnimatedColorBox
@@ -51,7 +54,7 @@ const Sidebar = (props: DrawerContentComponentProps) => {
           />
         </HStack>
         <Avatar
-          source={require('../assets/profile-image.png')}
+          source={require('../assets/masthead.png')}
           size="xl"
           borderRadius={100}
           mb={6}
@@ -59,7 +62,7 @@ const Sidebar = (props: DrawerContentComponentProps) => {
           borderWidth={3}
         />
         <Heading mb={4} size="xl">
-          Takuya Matsuyama
+          Let's be Productive
         </Heading>
         <MenuButton
           active={currentRoute === 'Main'}
@@ -67,6 +70,13 @@ const Sidebar = (props: DrawerContentComponentProps) => {
           icon="inbox"
         >
           Tasks
+        </MenuButton>
+        <MenuButton
+          active={currentRoute === 'Pomo'}
+          onPress={handlePressMenuPomo}
+          icon="command"
+        >
+          Pomodoro
         </MenuButton>
         <MenuButton
           active={currentRoute === 'About'}

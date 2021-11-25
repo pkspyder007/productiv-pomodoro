@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import MainScreen from './screens/main-screen'
 import AboutScreen from './screens/about-screen'
 import Sidebar from './components/sidebar'
+import Pomo from './screens/pomo-screen'
 
 const Drawer = createDrawerNavigator()
 
@@ -19,6 +20,7 @@ const App = () => {
     >
       <Drawer.Screen name="Main" component={MainScreen} />
       <Drawer.Screen name="About" component={AboutScreen} />
+      <Drawer.Screen name="Pomo" component={Pomo} />
     </Drawer.Navigator>
   )
 }

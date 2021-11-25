@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Icon, VStack, useColorModeValue, Fab } from 'native-base'
 import { AntDesign } from '@expo/vector-icons'
 import AnimatedColorBox from '../components/animated-color-box'
@@ -6,6 +6,7 @@ import TaskList from '../components/task-list'
 import shortid from 'shortid'
 import Masthead from '../components/masthead'
 import NavBar from '../components/navbar'
+import { getData, storeData } from '../utils/storage'
 
 const initialData = [
   {
@@ -54,10 +55,16 @@ export default function MainScreen() {
   }, [])
   const handleRemoveItem = useCallback(item => {
     setData(prevData => {
-      const newData = prevData.filter(i => i !== item)
+      const newData = prevData.filter(i => i !== item);
       return newData
     })
   }, [])
+
+  // useEffect(() => {
+  //   getData('todos').then(todos => {
+  //     setData(todos ?? initialData);
+  //   });
+  // }, [])
 
   return (
     <AnimatedColorBox
@@ -66,7 +73,7 @@ export default function MainScreen() {
       w="full"
     >
       <Masthead
-        title="What's up, Takuya!"
+        title="What's up, Buddy!"
         image={require('../assets/masthead.png')}
       >
         <NavBar />

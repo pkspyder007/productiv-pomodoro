@@ -6,13 +6,14 @@ import {
   VStack,
   Icon,
   Image,
-  useColorModeValue
+  useColorModeValue,
 } from 'native-base'
 import { Feather } from '@expo/vector-icons'
 import AnimatedColorBox from '../components/animated-color-box'
 import Navbar from '../components/navbar'
 import Masthead from '../components/masthead'
 import LinkButton from '../components/link-button'
+import { SafeAreaView } from 'react-native'
 
 const AboutScreen = () => {
   return (
@@ -23,7 +24,7 @@ const AboutScreen = () => {
     >
       <Masthead
         title="About this app"
-        image={require('../assets/about-masthead.png')}
+        image={require('../assets/bg-2.jpeg')}
       >
         <Navbar />
       </Masthead>
@@ -31,14 +32,22 @@ const AboutScreen = () => {
         borderTopLeftRadius="20px"
         borderTopRightRadius="20px"
         bg={useColorModeValue('warmGray.50', 'primary.900')}
-        mt="-20px"
-        pt="30px"
+        mt="-40px"
+        pt="20px"
         p={4}
       >
-        <VStack flex={1} space={4}>
-          <Box alignItems="center">
+        <VStack flex={1} space={4} mb={'30px'}>
+          <Box flexDirection="row" justifyContent="space-around">
             <Image
-              source={require('../assets/takuya.jpg')}
+              source={require('../assets/pk.png')}
+              borderRadius="full"
+              resizeMode="cover"
+              w={120}
+              h={120}
+              alt="author"
+            />
+            <Image
+              source={require('../assets/abhigya.png')}
               borderRadius="full"
               resizeMode="cover"
               w={120}
@@ -47,46 +56,40 @@ const AboutScreen = () => {
             />
           </Box>
           <Text fontSize="md" w="full">
-            This is a React Native tutorial built in the YouTube channel called
-            DevAsLife.
+            This is a React Native app build with beautiful UI and productivity in mind.
+            Developed By Abhigya and Praveen
           </Text>
-          <LinkButton
-            colorScheme="red"
-            size="lg"
-            borderRadius="full"
-            href="https://www.youtube.com/devaslife"
-            leftIcon={
-              <Icon as={Feather} name="youtube" size="sm" opacity={0.5} />
-            }
-          >
-            Go to YouTube channel
-          </LinkButton>
-          <LinkButton
-            colorScheme={useColorModeValue('blue', 'darkBlue')}
-            size="lg"
-            borderRadius="full"
-            href="https://twitter.com/inkdrop_app"
-            leftIcon={
-              <Icon as={Feather} name="twitter" size="sm" opacity={0.5} />
-            }
-          >
-            @inkdrop_app
-          </LinkButton>
           <Text fontSize="md" w="full">
-            Are you looking for a Markdown note-taking app? Check out my app
-            called Inkdrop!
+            Developed By Abhigya and Praveen
+          </Text>
+          <Text fontSize="xl" w="full">
+            Features
+          </Text>
+          <Text fontSize="md" w="full">
+            📓 Task manager
+          </Text>
+          <Text fontSize="md" w="full">
+            ⏳ Pomodoro Technique View
+          </Text>
+          <Text fontSize="md" w="full">
+            📳 Vibration Alerts
+          </Text>
+          <Text fontSize="md" w="full">
+            😻 Beautiful UI
           </Text>
           <LinkButton
-            colorScheme="purple"
+            mt={2}
+            colorScheme="gray"
             size="lg"
             borderRadius="full"
-            href="https://www.inkdrop.app/"
+            href="https://github.com/AbhigyaShridhar/Awesome-Planner"
             leftIcon={
-              <Icon as={Feather} name="external-link" size="sm" opacity={0.5} />
+              <Icon as={Feather} name="github" size="sm" opacity={0.5} />
             }
           >
-            https://www.inkdrop.app/
+            Go to Github repository
           </LinkButton>
+          
         </VStack>
       </ScrollView>
     </AnimatedColorBox>
